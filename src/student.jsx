@@ -54,7 +54,7 @@ class Student extends Component {
         };
 
         this.setState({
-
+            addClick: !this.state.addClick,
             students: [newStudent].concat(this.state.students)
         });
     }
@@ -78,6 +78,7 @@ class Student extends Component {
                         <input type="number" name="gpa" onChange={this.handleonChange}/>
                     </form>
                     <button onClick={this.handleAdd}> Add </button>
+                    <h1/>
                 </div>
             );
         }
@@ -89,7 +90,7 @@ class Student extends Component {
 
                 <button onClick={this.handleOnClick}> Add Student </button>
 
-                <h1> </h1>
+                <h1/>
 
                 {this.displayAddForm()}
 
@@ -109,6 +110,7 @@ class StudentCard extends Component {
     render() {
         return (
             <div className="studentCard">
+                <button> X </button>
                 <img src={this.props.imgUrl} alt="Anonymous Icon"/>
                 <h1> {this.props.firstName} {this.props.lastName} </h1>
                 <h3> {this.props.campus} </h3>
