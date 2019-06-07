@@ -27,6 +27,7 @@ class Student extends Component {
         this.setState({
             addClick: !this.state.addClick
         });
+        {this.displayStudent()}
     }
 
     handleOnChange = event  => {
@@ -84,6 +85,35 @@ class Student extends Component {
         }
     }
 
+    displayStudent = () => {
+
+        if(this.state.students.length > 0) {
+            return (
+                <div className="studentInfo">
+
+                    <h1/>
+
+                    {this.state.students.map(student =>
+                        <div className="student" key={student.id}>
+                            <StudentCard removeStudent={this.removeStudent} id={student.id}
+                            firstName={student.firstName} lastName={student.lastName}
+                            imgUrl={anonymous} email={student.email} gpa={student.gpa}
+                            campus={student.campus}/>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+        else { // if there are no students
+            return (
+                <div>
+                    <h1> THERE ARE NO STUDENTS </h1>
+                    <p> Click above to add students </p>
+                </div>
+            );
+        }
+    }
+
     removeStudent = (id) => {
 
         let studentArray = this.state.students;
@@ -98,28 +128,14 @@ class Student extends Component {
         this.setState({
             students: studentArray
         });
-
-
     }
 
     render() {
         return (
-            <div className="studentInfo">
-
-                <button onClick={this.handleOnClick}> Add Student </button>
-
-                <h1/>
-
+            <div>
+                <button onClick={this.handleOnClick}> Add New Student </button>
                 {this.displayAddForm()}
-
-                {this.state.students.map(student =>
-                    <div key={student.id}>
-                        <StudentCard removeStudent={this.removeStudent} id={student.id}
-                        firstName={student.firstName} lastName={student.lastName}
-                        imgUrl={anonymous} email={student.email} gpa={student.gpa}
-                        campus={student.campus}/>
-                    </div>
-                )}
+                {this.displayStudent()}
             </div>
         );
     }
@@ -130,12 +146,14 @@ class StudentCard extends Component {
     render() {
         return (
             <div className="studentCard">
-                <button onClick={() => this.props.removeStudent(this.props.id)}> X </button>
-                <img src={this.props.imgUrl} alt="Anonymous Icon"/>
-                <h1> {this.props.firstName} {this.props.lastName} </h1>
-                <h3> {this.props.campus} </h3>
-                <h4> {this.props.email} </h4>
-                <h4> GPA = {this.props.gpa} </h4>
+            <img src={this.props.imgUrl} alt="Anonymous Icon"/>
+            <button onClick={() => this.props.removeStudent(this.props.id)}> X </button>
+                <div className="container">
+                    <h4> <b> {this.props.firstName} {this.props.lastName} </b> </h4>
+                    <p> {this.props.campus} </p>
+                    <p> {this.props.email} </p>
+                    <p> GPA = {this.props.gpa} </p>
+                </div>
             </div>
         );
     }
