@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Student from './student';
+import Student from './components/student';
 
 ReactDOM.render(<Student />, document.getElementById('root'));
 
