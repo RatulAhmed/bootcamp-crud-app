@@ -36,7 +36,7 @@ class Student extends Component {
         });
     }
 
-    handleAdd = () => {
+    addStudent = () => {
 
         let campus;
 
@@ -77,7 +77,7 @@ class Student extends Component {
                         GPA <br/>
                         <input type="number" name="gpa" onChange={this.handleonChange}/>
                     </form>
-                    <button onClick={this.handleAdd}> Add </button>
+                    <button onClick={this.addStudent}> Add </button>
                     <h1/>
                 </div>
             );
