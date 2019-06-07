@@ -29,7 +29,7 @@ class Student extends Component {
         });
     }
 
-    handleonChange = event  => {
+    handleOnChange = event  => {
 
         this.setState({
             [event.target.name]: event.target.value
@@ -67,15 +67,15 @@ class Student extends Component {
                 <div>
                     <form>
                         First Name <br/>
-                        <input type="text" name="firstName" onChange={this.handleonChange}/> <br/>
+                        <input type="text" name="firstName" onChange={this.handleOnChange}/> <br/>
                         Last Name <br/>
-                        <input type="text" name="lastName" onChange={this.handleonChange}/> <br/>
+                        <input type="text" name="lastName" onChange={this.handleOnChange}/> <br/>
                         Email <br/>
-                        <input type="text" name="email" onChange={this.handleonChange}/> <br/>
+                        <input type="text" name="email" onChange={this.handleOnChange}/> <br/>
                         Campus <br/>
-                        <input type="text" name="campus" onChange={this.handleonChange}/> <br/>
+                        <input type="text" name="campus" onChange={this.handleOnChange}/> <br/>
                         GPA <br/>
-                        <input type="number" name="gpa" onChange={this.handleonChange}/>
+                        <input type="number" name="gpa" onChange={this.handleOnChange}/>
                     </form>
                     <button onClick={this.addStudent}> Add </button>
                     <h1/>
