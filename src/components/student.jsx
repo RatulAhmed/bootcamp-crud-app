@@ -38,13 +38,19 @@ class Student extends Component {
 
     handleAdd = () => {
 
+        let campus;
+
+        if(this.state.campus === ''){
+            campus = "This student is not enrolled in any campus";
+        }
+
         const newStudent = {
             id: this.state.students.length,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,
             gpa: this.state.gpa,
-            campus: this.state.campus
+            campus: campus
         };
 
         this.setState({
