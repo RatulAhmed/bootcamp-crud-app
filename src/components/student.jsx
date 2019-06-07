@@ -14,15 +14,9 @@ class Student extends Component {
             email: '',
             gpa: 0.0,
             campus: '',
+            img: '',
 
-            students: [{
-                id: 0,
-                firstName: 'Karanveer',
-                lastName: 'Singh',
-                email: 'karansingh98123@gmail.com',
-                gpa: 3.5,
-                campus: 'Hunter College'
-            }],
+            students: [],
 
             addClick: false
         };
@@ -84,6 +78,24 @@ class Student extends Component {
         }
     }
 
+    removeStudent = (id) => {
+
+        let studentArray = this.state.students;
+
+        for(let i = 0; i < studentArray.length; i++) {
+
+            if(studentArray[i].id === id) {
+                studentArray.splice(i, 1);
+            }
+        }
+
+        this.setState({
+            students: studentArray
+        });
+
+
+    }
+
     render() {
         return (
             <div className="studentInfo">
@@ -96,8 +108,10 @@ class Student extends Component {
 
                 {this.state.students.map(student =>
                     <div key={student.id}>
-                        <StudentCard firstName={student.firstName} lastName={student.lastName}
-                        imgUrl={anonymous} email={student.email} gpa={student.gpa} campus={student.campus}/>
+                        <StudentCard removeStudent={this.removeStudent} id={student.id}
+                        firstName={student.firstName} lastName={student.lastName}
+                        imgUrl={anonymous} email={student.email} gpa={student.gpa}
+                        campus={student.campus}/>
                     </div>
                 )}
             </div>
@@ -110,7 +124,7 @@ class StudentCard extends Component {
     render() {
         return (
             <div className="studentCard">
-                <button> X </button>
+                <button onClick={() => this.props.removeStudent(this.props.id)}> X </button>
                 <img src={this.props.imgUrl} alt="Anonymous Icon"/>
                 <h1> {this.props.firstName} {this.props.lastName} </h1>
                 <h3> {this.props.campus} </h3>
