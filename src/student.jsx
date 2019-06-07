@@ -45,8 +45,18 @@ class Student extends Component {
     handleAdd = () => {
 
         const newStudent = {
-            
-        }
+            id: this.state.students.length,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            gpa: this.state.gpa,
+            campus: this.state.campus
+        };
+
+        this.setState({
+
+            students: [newStudent].concat(this.state.students)
+        });
     }
 
     displayAddForm = () => {
@@ -57,15 +67,15 @@ class Student extends Component {
                 <div>
                     <form>
                         First Name <br/>
-                        <input type="text" name="firstName" onChange={handleonChange}/> <br/>
+                        <input type="text" name="firstName" onChange={this.handleonChange}/> <br/>
                         Last Name <br/>
-                        <input type="text" name="lastName" onChange={handleonChange}/> <br/>
+                        <input type="text" name="lastName" onChange={this.handleonChange}/> <br/>
                         Email <br/>
-                        <input type="text" name="email" onChange={handleonChange}/> <br/>
+                        <input type="text" name="email" onChange={this.handleonChange}/> <br/>
                         Campus <br/>
-                        <input type="text" name="campus" onChange={handleonChange}/> <br/>
+                        <input type="text" name="campus" onChange={this.handleonChange}/> <br/>
                         GPA <br/>
-                        <input type="number" name="gpa" onChange={handleonChange}/>
+                        <input type="number" name="gpa" onChange={this.handleonChange}/>
                     </form>
                     <button onClick={this.handleAdd}> Add </button>
                 </div>
