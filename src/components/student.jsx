@@ -18,24 +18,31 @@ class Student extends Component {
 
             students: [],
 
-            addClick: false
+            addClick: false,
+            editClick: false,
         };
-    }
+    };
 
-    handleOnClick = event => {
+    handleAddClick = event => {
 
         this.setState({
             addClick: !this.state.addClick
         });
-        {this.displayStudent()}
-    }
+    };
+
+    handleEditClick = event => {
+
+        this.setState({
+            editClick: !this.state.editClick
+        });
+    };
 
     handleOnChange = event  => {
 
         this.setState({
             [event.target.name]: event.target.value
         });
-    }
+    };
 
     addStudent = () => {
 
@@ -51,20 +58,20 @@ class Student extends Component {
             lastName: this.state.lastName,
             email: this.state.email,
             gpa: this.state.gpa,
-            campus: campus
+            campus: campus,
         };
 
         this.setState({
             addClick: !this.state.addClick,
             students: [newStudent].concat(this.state.students)
         });
-    }
+    };
 
-    displayAddForm = () => {
+    displayForm = (id) => {
 
-        if(this.state.addClick) {
+        if(this.state.addClick && !this.state.editClick) {
 
-            return(
+            return (
                 <div>
                     <form>
                         First Name <br/>
@@ -83,7 +90,28 @@ class Student extends Component {
                 </div>
             );
         }
-    }
+        else if(this.state.editClick) {
+
+            return (
+                <div>
+                    <form>
+                        First Name <br/>
+                        <input type="text" name="firstName" onChange={this.handleOnChange}/> <br/>
+                        Last Name <br/>
+                        <input type="text" name="lastName" onChange={this.handleOnChange}/> <br/>
+                        Email <br/>
+                        <input type="text" name="email" onChange={this.handleOnChange}/> <br/>
+                        Campus <br/>
+                        <input type="text" name="campus" onChange={this.handleOnChange}/> <br/>
+                        GPA <br/>
+                        <input type="number" name="gpa" onChange={this.handleOnChange}/>
+                    </form>
+                    <button onClick={this.editStudent(id)}> Edit </button>
+                    <h1/>
+                </div>
+            );
+        }
+    };
 
     displayStudent = () => {
 
@@ -95,7 +123,7 @@ class Student extends Component {
 
                     {this.state.students.map(student =>
                         <div className="student" key={student.id}>
-                            <StudentCard removeStudent={this.removeStudent} id={student.id}
+                            <StudentCard handleEditClick={this.handleEditClick} removeStudent={this.removeStudent} id={student.id}
                             firstName={student.firstName} lastName={student.lastName}
                             imgUrl={anonymous} email={student.email} gpa={student.gpa}
                             campus={student.campus}/>
@@ -112,7 +140,7 @@ class Student extends Component {
                 </div>
             );
         }
-    }
+    };
 
     removeStudent = (id) => {
 
@@ -128,13 +156,30 @@ class Student extends Component {
         this.setState({
             students: studentArray
         });
-    }
+    };
+
+    editStudent = (id) => {
+
+        const editStudentInfo = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            gpa: this.state.gpa,
+            campus: this.state.campus,
+        };
+
+        for(let i = 0; i < this.state.students.length; i++) {
+            if(this.state.students.id === id) {
+                this.state.students[i] = editStudentInfo;
+            }
+        }
+    };
 
     render() {
         return (
             <div>
-                <button onClick={this.handleOnClick}> Add New Student </button>
-                {this.displayAddForm()}
+                <button onClick={this.handleAddClick}> Add New Student </button>
+                {this.displayForm()}
                 {this.displayStudent()}
             </div>
         );
@@ -148,6 +193,7 @@ class StudentCard extends Component {
             <div className="studentCard">
             <img src={this.props.imgUrl} alt="Anonymous Icon"/>
             <button onClick={() => this.props.removeStudent(this.props.id)}> X </button>
+            <button onClick={() => this.props.handleEditClick()} Edit </button>
                 <div className="container">
                     <h4> <b> {this.props.firstName} {this.props.lastName} </b> </h4>
                     <p> {this.props.campus} </p>
@@ -156,7 +202,7 @@ class StudentCard extends Component {
                 </div>
             </div>
         );
-    }
+    };
 };
 
 
