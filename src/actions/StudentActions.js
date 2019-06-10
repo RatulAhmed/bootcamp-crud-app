@@ -1,5 +1,3 @@
-
-
 export function editStudentInfo(modifiedStudent) {
     return {
         type: "EDIT_STUDENT_INFO",

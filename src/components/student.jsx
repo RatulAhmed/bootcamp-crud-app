@@ -1,3 +1,4 @@
+/*
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import anonymous from './anonymous.jpg';
@@ -207,3 +208,4 @@ class StudentCard extends Component {
 
 
 export default Student;
+*/

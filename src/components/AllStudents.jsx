@@ -1,16 +1,30 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {editStudentInfo, removeStudent,  addStudent} from '../actions/StudentActions';
+import store from '../Store';
 
-connect ((store) => {
+const mapStates = (state, ownProps) => {
+
     return {
-        firstName: store.students.firstName,
-        lastName: store.students.lastName,
-        email: store.students.email,
-        campus: store.students.campus,
-        gpa: store.students.gpa
+        value: state.students
+    }
+}
+
+const mapDispatch = (state, ownProps) => {
+
+    return {
+        editStudentInfo: () => {
+            dispatch({type: EDIT_STUDENT_INFO});
+        },
+        removeStudent: () => {
+            dispatch({type: REMOVE_STUDENT});
+        },
+        addStudent: () => {
+            dispatch({type: ADD_STUDENT});
+        }
     };
-})
+}
+
 
 class AllStudents extends Component {
 
@@ -19,11 +33,13 @@ class AllStudents extends Component {
     }
 
     render() {
-        console.log(this.props.firstName);
+        console.log(this.props);
         return(
             null
         );
     }
 };
 
-export default AllStudents;
+export default connect(mapStates, mapDispatch)(AllStudents);
+
+//export default AllStudents;

@@ -1,4 +1,3 @@
-import React, {Component} from 'redux';
 import {createStore} from 'redux';
 import reducer from './reducers/StudentsReducer';
 
