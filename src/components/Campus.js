@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-
+// Represents a Single Campus
 class Campus extends Component {
 	
 	constructor() {
@@ -10,7 +10,7 @@ class Campus extends Component {
 			campusName: "TestCampus",
 			campusAddress: "tempAddress",
 			imageURL : "test.jpg",
-			descript: "dsfsdffsfsd",
+			description: "dsfsdffsfsd",
 			studentNames: []
 		}
 		this.blankState = this.state;
@@ -22,7 +22,6 @@ class Campus extends Component {
 			<div>
 			<p>{this.state.campusName}</p>
 			</div>
-
 			)
 	}	
 }
