@@ -29,7 +29,7 @@ function reducer(state = {
             campus: 'Conitnental',
             img: "../components/anonymous.jpg",
             id: 3,
-        }
+        },
     ],
 }, action) {
 
@@ -41,7 +41,11 @@ function reducer(state = {
             break;
         }
         case ADD_STUDENT: {
-            break;
+            console.log('new student is' , action.payload);
+            return {
+                ...state,
+                students: state.students.concat(action.payload)
+            };
         }
         default:
             return state;

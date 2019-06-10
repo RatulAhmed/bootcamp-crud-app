@@ -7,6 +7,7 @@ import Student from './components/student';
 import AllStudents from './components/AllStudents';
 import {Provider} from 'react-redux';
 import store from './Store';
+import AllStudentView from './components/AllStudentView';
 
 ReactDOM.render(
     <Provider store={store}>
