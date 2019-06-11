@@ -14,13 +14,13 @@ function campusReducer(state = {
 	],
 }, action) {
 	switch(action.type) {
-		case: "ADD_CAMPUS": {
+		case "ADD_CAMPUS": {
 			break;
 		}
-		case: "EDIT_CAMPUS": {
+		case "EDIT_CAMPUS": {
 			break;
 		}
-		case: "REMOVE_CAMPUS": {
+		case "REMOVE_CAMPUS": {
 			break;
 		}
 		default:
@@ -29,4 +29,4 @@ function campusReducer(state = {
 }
 
 
-export default CampusReducer; 
+export default campusReducer; 

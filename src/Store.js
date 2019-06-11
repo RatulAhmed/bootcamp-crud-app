@@ -3,4 +3,4 @@ import reducer from './reducers/StudentsReducer';
 import campusReducer from './reducers/CampusReducer';
 
 // Need to combine reducers 
-export default createStore(reducer);
+export default createStore(campusReducer);
