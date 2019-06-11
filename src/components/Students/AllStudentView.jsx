@@ -1,0 +1,90 @@
+import React, {Component} from 'react';
+import SingleStudentContainer from './SingleStudentContainer';
+import {Router, Route} from 'react-router';
+
+class AllStudentView extends Component {
+
+    constructor(props){
+        super(props);
+    };
+
+    displayForm = () => {
+
+        if(this.props.addClick) {
+            return (
+                <div>
+                    <form>
+                        First Name <br/>
+                        <input type="text" name="firstName" onChange={this.props.handleOnChange}/> <br/>
+                        Last Name <br/>
+                        <input type="text" name="lastName" onChange={this.props.handleOnChange}/> <br/>
+                        Email <br/>
+                        <input type="text" name="email" onChange={this.props.handleOnChange}/> <br/>
+                        Campus <br/>
+                        <input type="text" name="campus" onChange={this.props.handleOnChange}/> <br/>
+                        GPA <br/>
+                        <input type="number" name="gpa" onChange={this.props.handleOnChange}/>
+                    </form>
+                    <button onClick={this.props.handleOnSubmit}> Add </button>
+                    <h1/>
+                </div>
+            );
+        }
+    }
+
+    displayStudents = () => {
+
+        if(this.props.studentInfo.length > 0) {
+
+            const SingleStudentComponent = () => {
+                <SingleStudentContainer students={this.props.studentInfo}/>
+            };
+
+            return (
+                <div>
+                    {this.props.studentInfo.map(student =>
+                        <div key={student.id}>
+                        <Router>
+                            <Route exact path='/student' render={SingleStudentComponent}/>
+                        </Router>
+                            <h4> <b> {student.firstName} {student.lastName} </b> </h4>
+                            <p> {student.campus} </p>
+                            <p> {student.email} </p>
+                            <p> {student.gpa} </p>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+        else {
+            return (
+                <div>
+                    <h1> There are no students </h1>
+                    <h4> Click above to add new students </h4>
+                </div>
+            );
+        }
+    }
+
+    render() {
+
+        const {studentInfo, updateAddClick} = this.props;
+
+        return(
+
+            <div className="AllStudents">
+
+                <header> <h1> All Students </h1> </header>
+
+                <button onClick={updateAddClick}> Add New Student </button>
+
+                {this.displayForm()}
+
+                {this.displayStudents()}
+
+            </div>
+        );
+    }
+};
+
+export default AllStudentView;
