@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { addCampus, editCampus ,removeCampus } from '../actions/CampusActions';
+import { ADD_CAMPUS, EDIT_CAMPUS, REMOVE_CAMPUS, addCampus, editCampus ,removeCampus } from '../actions/CampusActions';
 import store from '../Store';
 
 class AllCampus extends Component {
@@ -17,7 +17,7 @@ class AllCampus extends Component {
 };
 
 
-const mapStates = (state, ownProps) => {
+const mapStates = (state) => {
 
 	return {
 
@@ -25,7 +25,7 @@ const mapStates = (state, ownProps) => {
 	}
 }
 
-const mapDispatch = (state, ownProps) => {
+const mapDispatch = (dispatch) => {
 
 	return {
 
@@ -33,7 +33,7 @@ const mapDispatch = (state, ownProps) => {
 			dispatch({type: ADD_CAMPUS});
 		},
 		editCampus: () => {
-			dispatch({type: EDIT_CAMUPUS});
+			dispatch({type: EDIT_CAMPUS});
 			},
 		removeCampus: () => {
 			dispatch({type: REMOVE_CAMPUS});

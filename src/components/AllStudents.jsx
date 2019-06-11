@@ -10,7 +10,7 @@ const mapStates = (state, ownProps) => {
     }
 }
 
-const mapDispatch = (state, ownProps) => {
+const mapDispatch = (dispatch) => {
 
     return {
         editStudentInfo: () => {
