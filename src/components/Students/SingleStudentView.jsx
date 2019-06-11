@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class SingleStudentView extends Component {
 
@@ -44,9 +45,9 @@ class SingleStudentView extends Component {
 
                 {this.props.students.map(student =>
                     <div key={student.id}>
-                    <Link to `/${this.props.id}`>
-                        <h4> <b> {student.firstName} {student.lastName} </b> </h4>
-                    </Link>
+                        <Link to={`/students/${this.props.id}`}>
+                            <h4> <b> {student.firstName} {student.lastName} </b> </h4>
+                        </Link>
                         <p> {student.campus} </p>
                         <p> {student.email} </p>
                         <p> {student.gpa} </p>
