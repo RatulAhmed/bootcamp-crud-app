@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {EDIT_STUDENT_INFO, REMOVE_STUDENT, ADD_STUDENT,
-    editStudentInfo, removeStudent,  addStudent} from '../../actions/StudentActions';
+    addStudentThunk} from '../../actions/StudentActions';
 import store from '../../Store';
 import AllStudentView from './AllStudentView';
 
@@ -37,11 +37,13 @@ class AllStudentsContainer extends Component {
             gpa: this.state.gpa,
             campus: this.state.campus,
             img: './anonymous',
-            id: this.props.students.length,
+            id: this.props.students.length + 1,
         };
 
-        console.log('new student', newStudent)
-
+        this.setState({
+            addClick: !this.state.addClick
+        });
+        
         this.props.addStudent(newStudent)
     };
 
@@ -80,7 +82,7 @@ const mapDispatch = (dispatch) => {
             dispatch({type: REMOVE_STUDENT});
         },
         addStudent: (newStudent) => {
-            dispatch({type: ADD_STUDENT});
+            dispatch(addStudentThunk(newStudent));
         }
     };
 }

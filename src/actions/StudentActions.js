@@ -22,3 +22,7 @@ export const addStudent = (newStudent) => {
         payload: newStudent
     }
 }
+
+export const addStudentThunk = (newStudent) => (dispatch) => {
+    return dispatch(addStudent(newStudent));
+};

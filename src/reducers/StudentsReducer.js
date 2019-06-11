@@ -41,7 +41,7 @@ function reducer(state = {
             break;
         }
         case ADD_STUDENT: {
-            console.log('new student is' , action.payload);
+            console.log('new student is', action.payload);
             return {
                 ...state,
                 students: state.students.concat(action.payload)
