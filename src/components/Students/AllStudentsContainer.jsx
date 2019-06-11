@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {EDIT_STUDENT_INFO, REMOVE_STUDENT, ADD_STUDENT,
-    addStudentThunk} from '../../actions/StudentActions';
+import {ADD_STUDENT, addStudentThunk} from '../../actions/StudentActions';
 import store from '../../Store';
 import AllStudentView from './AllStudentView';
 
@@ -75,12 +74,6 @@ const mapStates = (state) => {
 const mapDispatch = (dispatch) => {
 
     return {
-        editStudentInfo: (revisedStudent) => {
-            dispatch({type: EDIT_STUDENT_INFO});
-        },
-        removeStudent: (id) => {
-            dispatch({type: REMOVE_STUDENT});
-        },
         addStudent: (newStudent) => {
             dispatch(addStudentThunk(newStudent));
         }
