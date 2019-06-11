@@ -1,3 +1,7 @@
+export const ADD_CAMPUS = "ADD_CAMPUS";
+export const EDIT_CAMPUS = "EDIT_CAMPUS";
+export const REMOVE_CAMPUS = "REMOVE_CAMPUS";
+
 export function addCampus(newCampus) {
     return {
         type: "ADD_CAMPUS",

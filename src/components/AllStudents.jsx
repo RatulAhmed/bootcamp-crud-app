@@ -1,3 +1,4 @@
+/*
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {editStudentInfo, removeStudent,addStudent} from '../actions/StudentActions';
@@ -43,3 +44,4 @@ class AllStudents extends Component {
 export default connect(mapStates, mapDispatch)(AllStudents);
 
 //export default AllStudents;
+*/

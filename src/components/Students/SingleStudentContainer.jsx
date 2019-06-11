@@ -28,12 +28,16 @@ class SingleStudentContainer extends Component {
 
     handleEdit = () => {
 
-        const modifiedStudent = this.props.students;
+        const modifiedStudent = {};
 
         this.props.editStudent(modifiedStudent);
     };
 
     render() {
+
+        console.log('id = ', this.props.match.params.id)
+
+        console.log(this.state.curStudent);
 
         return(
             < SingleStudentView handleEdit={this.handleEdit} handleOnChange={this.handleOnChange}
