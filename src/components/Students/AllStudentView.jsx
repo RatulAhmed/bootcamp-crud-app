@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-//import SingleStudentContainer from './SingleStudentContainer';
+import SingleStudentContainer from './SingleStudentContainer';
+import {Router, Route} from 'react-router';
 
 class AllStudentView extends Component {
 
@@ -35,13 +36,21 @@ class AllStudentView extends Component {
 
         if(this.props.studentInfo.length > 0) {
 
+            const SingleStudentComponent = () => {
+                <SingleStudentContainer students={this.props.studentInfo}/>
+            };
+
             return (
                 <div>
                     {this.props.studentInfo.map(student =>
                         <div key={student.id}>
+                        <Router>
+                            <Route exact path='/student' render={SingleStudentComponent}/>
+                        </Router>
                             <h4> <b> {student.firstName} {student.lastName} </b> </h4>
                             <p> {student.campus} </p>
                             <p> {student.email} </p>
+                            <p> {student.gpa} </p>
                         </div>
                     )}
                 </div>
@@ -76,8 +85,6 @@ class AllStudentView extends Component {
             </div>
         );
     }
-
-
 };
 
 export default AllStudentView;

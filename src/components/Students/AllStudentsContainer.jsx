@@ -11,11 +11,11 @@ class AllStudentsContainer extends Component {
         super(props);
         this.state = {
 
-            firstName: "",
-            lastName : "",
-            email: "",
-            campus: "",
-            gpa: 0.0,
+            firstName: "N/A",
+            lastName : "N/A",
+            email: "N/A",
+            campus: "N/A",
+            gpa: "N/A",
             img: "",
             addClick: false,
         }
@@ -43,7 +43,7 @@ class AllStudentsContainer extends Component {
         this.setState({
             addClick: !this.state.addClick
         });
-        
+
         this.props.addStudent(newStudent)
     };
 

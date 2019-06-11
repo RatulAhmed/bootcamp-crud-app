@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {EDIT_STUDENT_INFO, REMOVE_STUDENT, ADD_STUDENT,
-    editStudentInfo, removeStudent,  addStudent} from '../../actions/StudentActions';
+    editStudentInfo, removeStudent} from '../../actions/StudentActions';
 import store from '../../Store';
 import SingleStudentView from './SingleStudentView';
 
@@ -10,12 +10,6 @@ class SingleStudentContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-            firstName: this.props.curStudent.firstName,
-            lastName: this.props.curStudent.lastName,
-            campus: this.props.curStudent.campus,
-            gpa: this.props.curStudent.gpa,
-            email: this.props.curStudent.email,
-            id: this.props.curStudent.id,
             editClick: false,
         };
     };
@@ -34,21 +28,13 @@ class SingleStudentContainer extends Component {
 
     handleEdit = () => {
 
-        const modifiedStudent = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            gpa: this.state.gpa,
-            email: this.state.email,
-            campus: this.state.campus,
-            id: this.state.id
-        };
+        const modifiedStudent = this.props.students;
 
         this.props.editStudent(modifiedStudent);
     };
 
     render() {
 
-        console.log('student in container is', this.props.student);
         return(
             < SingleStudentView handleEdit={this.handleEdit} handleOnChange={this.handleOnChange}
             onEdit={this.onEdit} editClick={this.editClick}
@@ -74,9 +60,6 @@ const mapDispatch = (dispatch) => {
         removeStudent: (id) => {
             dispatch({type: REMOVE_STUDENT});
         },
-        addStudent: (newStudent) => {
-            dispatch({type: ADD_STUDENT});
-        }
     };
 }
 

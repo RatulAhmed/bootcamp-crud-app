@@ -37,14 +37,16 @@ class SingleStudentView extends Component {
                     <h1> {this.props.curStudent.firstName} {this.props.curStudent.lastName} </h1>
                     <h3> {this.props.curStudent.campus} </h3>
                     <p> {this.props.curStudent.email} </p>
-                    <button onClick = {() => this.props.onEdit}> Edit Student Info </button>
+                    <button onClick = {this.props.onEdit}> Edit Student Info </button>
                     {this.displayForm()}
                 </div>
+
                 {this.props.students.map(student =>
-                    <div>
+                    <div key={student.id}>
                         <h4> <b> {student.firstName} {student.lastName} </b> </h4>
                         <p> {student.campus} </p>
                         <p> {student.email} </p>
+                        <p> {student.gpa} </p>
                     </div>
                 )}
             </div>
