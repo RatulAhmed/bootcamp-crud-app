@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {editStudentInfo, removeStudent,  addStudent} from '../actions/StudentActions';
+import {editStudentInfo, removeStudent,addStudent} from '../actions/StudentActions';
 import store from '../Store';
 
 const mapStates = (state, ownProps) => {
@@ -10,7 +10,7 @@ const mapStates = (state, ownProps) => {
     }
 }
 
-const mapDispatch = (state, ownProps) => {
+const mapDispatch = (dispatch) => {
 
     return {
         editStudentInfo: () => {
