@@ -18,14 +18,11 @@ class NewCampusForm extends Component {
 	render() {
 		return(
 			<form onSubmit={this.handleSubmit}>
-			<input type="text" placeholder="Search" value=""/> />
+			<input type="text" placeholder="Search" value=""/>
 			<button type="submit">Add Campus</button>
 			</form>
 			)
 	}
-
-
-
 
 }
 

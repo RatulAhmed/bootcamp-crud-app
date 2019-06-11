@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { ADD_CAMPUS, EDIT_CAMPUS, REMOVE_CAMPUS, addCampus, editCampus ,removeCampus } from '../actions/CampusActions';
 import store from '../Store';
 
@@ -7,6 +7,10 @@ class AllCampus extends Component {
 	
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			campuses: []
+		}
 	}
 
 	render() {
@@ -21,7 +25,7 @@ const mapStates = (state) => {
 
 	return {
 
-		value: state.campus
+		value: state.campuses
 	}
 }
 
