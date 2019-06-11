@@ -38,6 +38,7 @@ class AllStudentView extends Component {
                 <div>
                     {this.props.studentInfo.map(student =>
                         <div key={student.id}>
+                            <a href="./SingleStudentContainer"> View Student </a>
                             <h4> <b> {student.firstName} {student.lastName} </b> </h4>
                             <p> {student.campus} </p>
                             <p> {student.email} </p>

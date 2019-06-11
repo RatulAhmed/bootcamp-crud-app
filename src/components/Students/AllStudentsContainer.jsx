@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {EDIT_STUDENT_INFO, REMOVE_STUDENT, ADD_STUDENT,
-    editStudentInfo, removeStudent,  addStudent} from '../actions/StudentActions';
-import store from '../Store';
+    editStudentInfo, removeStudent,  addStudent} from '../../actions/StudentActions';
+import store from '../../Store';
 import AllStudentView from './AllStudentView';
 
-class AllStudents extends Component {
+class AllStudentsContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -85,4 +85,4 @@ const mapDispatch = (dispatch) => {
     };
 }
 
-export default connect(mapStates, mapDispatch)(AllStudents);
+export default connect(mapStates, mapDispatch)(AllStudentsContainer);
