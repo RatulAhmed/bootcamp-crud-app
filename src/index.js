@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Student from './components/student';
-import AllStudents from './components/AllStudents';
+import AllStudentsContainer from './components/Students/AllStudentsContainer';
 import {Provider} from 'react-redux';
 import store from './Store';
-import AllStudentView from './components/AllStudentView';
 
 ReactDOM.render(
     <Provider store={store}>
-        <AllStudents />
+        <AllStudentsContainer />
     </Provider>,
     document.getElementById('root'));
 
