@@ -3,20 +3,20 @@ import { Redirect } from 'react-router-dom'
 import '../styles/allCampus.css'
 
 class Campus extends Component {
-	constructor(){
+	constructor() {
+    
 		super();
 
 		this.state = {
 			campusName: "",
 			campusAddress: "",
 			imageURL : "",
-			descript: "",
+			description: "",
 			studentNames: []
 		}
 		this.blankState = this.state;
 	}
 	render(){
-
 		return (
 				<div className="campus-flex-container">
 					<div className="campus-box">
