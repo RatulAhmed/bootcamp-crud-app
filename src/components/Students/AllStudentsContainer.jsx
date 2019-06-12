@@ -53,7 +53,7 @@ class AllStudentsContainer extends Component {
     };
 
     render() {
-
+        
         return(
             < AllStudentView addClick={this.state.addClick} handleOnSubmit={this.handleOnSubmit}
             handleOnChange={this.handleOnChange} updateAddClick={this.updateAddClick}

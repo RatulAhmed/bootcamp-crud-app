@@ -5,6 +5,7 @@ import SingleStudentContainer from './components/Students/SingleStudentContainer
 import Home from './components/Home';
 
 class App extends Component {
+
     render() {
 
         const HomeComponent = () => {

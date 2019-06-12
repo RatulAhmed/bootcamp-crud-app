@@ -9,10 +9,10 @@ const editStudent = (modifiedStudent) => {
     }
 };
 
-const removeStudent = (studentID) => {
+const removeStudent = (id) => {
     return {
         type: REMOVE_STUDENT,
-        payload: studentID
+        payload: id
     }
 };
 
@@ -23,12 +23,12 @@ const addStudent = (newStudent) => {
     }
 };
 
-export const editStudentThunk = () => (dispatch) => {
-    return dispatch(editStudent());
+export const editStudentThunk = (modifiedStudent) => (dispatch) => {
+    return dispatch(editStudent(modifiedStudent));
 };
 
-export const removeStudentThunk = () => (dispatch) => {
-    return dispatch(removeStudent());
+export const removeStudentThunk = (id) => (dispatch) => {
+    return dispatch(removeStudent(id));
 };
 
 export const addStudentThunk = (newStudent) => (dispatch) => {

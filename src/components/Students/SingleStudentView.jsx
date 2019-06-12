@@ -37,10 +37,14 @@ class SingleStudentView extends Component {
         return(
             <div className="singleStudent">
                 <div>
+                    <h1> SingleStudentView </h1>
                     <h1> {this.props.curStudent.firstName} {this.props.curStudent.lastName} </h1>
-                    <h3> {this.props.curStudent.campus} </h3>
-                    <p> {this.props.curStudent.email} </p>
+                    <h1> {this.props.curStudent.campus} </h1>
+                    <h3> {this.props.curStudent.email} </h3>
                     <button onClick={this.props.onEdit}> Edit Student Info </button>
+                    <Link to='/students'>
+                        <button onClick={this.props.remove}> Remove Student </button>
+                    </Link>
                     {this.displayForm()}
                 </div>
 
