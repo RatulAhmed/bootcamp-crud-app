@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import SingleStudentContainer from './SingleStudentContainer';
 
 class SingleStudentView extends Component {
 
@@ -39,13 +40,13 @@ class SingleStudentView extends Component {
                     <h1> {this.props.curStudent.firstName} {this.props.curStudent.lastName} </h1>
                     <h3> {this.props.curStudent.campus} </h3>
                     <p> {this.props.curStudent.email} </p>
-                    <button onClick = {this.props.onEdit}> Edit Student Info </button>
+                    <button onClick={this.props.onEdit}> Edit Student Info </button>
                     {this.displayForm()}
                 </div>
 
                 {this.props.students.map(student =>
                     <div key={student.id}>
-                        <Link to={`/students/${this.props.id}`}>
+                        <Link to={`/students/${student.id}`}>
                             <h4> <b> {student.firstName} {student.lastName} </b> </h4>
                         </Link>
                         <p> {student.campus} </p>

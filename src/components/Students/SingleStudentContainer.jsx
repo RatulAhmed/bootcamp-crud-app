@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {EDIT_STUDENT_INFO, REMOVE_STUDENT, ADD_STUDENT,
-    editStudentInfo, removeStudent} from '../../actions/StudentActions';
+import {EDIT_STUDENT_INFO, REMOVE_STUDENT, editStudentInfo, removeStudent} from '../../actions/StudentActions';
 import store from '../../Store';
 import SingleStudentView from './SingleStudentView';
 
@@ -11,6 +10,8 @@ class SingleStudentContainer extends Component {
         super(props);
         this.state = {
             editClick: false,
+            curStudent: {},
+            id: this.props.match.params.id,
         };
     };
 
@@ -35,14 +36,12 @@ class SingleStudentContainer extends Component {
 
     render() {
 
-        console.log('id = ', this.props.match.params.id)
-
-        console.log(this.state.curStudent);
+        console.log('students are', this.state.students);
 
         return(
             < SingleStudentView handleEdit={this.handleEdit} handleOnChange={this.handleOnChange}
-            onEdit={this.onEdit} editClick={this.editClick}
-            curStudent={this.props.curStudent} students={this.state.students} />
+            onEdit={this.onEdit} editClick={this.state.editClick}
+            curStudent={this.state.curStudent} students={this.state.students} />
         );
     };
 
@@ -52,8 +51,8 @@ const mapStates = (state) => {
 
     return {
         students: state.students
-    }
-}
+    };
+};
 
 const mapDispatch = (dispatch) => {
 
@@ -65,6 +64,6 @@ const mapDispatch = (dispatch) => {
             dispatch({type: REMOVE_STUDENT});
         },
     };
-}
+};
 
 export default connect(mapStates, mapDispatch)(SingleStudentContainer);
