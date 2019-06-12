@@ -7,7 +7,7 @@ export function addCampus(newCampus) {
     return {
         type: "ADD_CAMPUS",
         payload: newCampus
-    }
+    } 
 }
 
 export const EDIT_CAMPUS = "EDIT_CAMPUS";
