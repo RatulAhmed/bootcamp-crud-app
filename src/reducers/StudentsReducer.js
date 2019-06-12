@@ -38,10 +38,13 @@ function reducer(state = {
             break;
         }
         case REMOVE_STUDENT: {
-            break;
+            let newState = state.students;
+            return {
+                ...state,
+                students: newState.filter(val => val.id != action.payload)
+            }
         }
         case ADD_STUDENT: {
-            console.log('new student is', action.payload);
             return {
                 ...state,
                 students: state.students.concat(action.payload)

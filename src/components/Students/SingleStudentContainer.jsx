@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {EDIT_STUDENT_INFO, REMOVE_STUDENT, ADD_STUDENT,
-    editStudentInfo, removeStudent} from '../../actions/StudentActions';
+import {EDIT_STUDENT_INFO, REMOVE_STUDENT, editStudentThunk, removeStudentThunk} from '../../actions/StudentActions';
 import store from '../../Store';
 import SingleStudentView from './SingleStudentView';
 
@@ -11,6 +10,12 @@ class SingleStudentContainer extends Component {
         super(props);
         this.state = {
             editClick: false,
+            firstName: '',
+            lastName : '',
+            email: '',
+            campus: '',
+            gpa: '',
+            id: this.props.match.params.id,
         };
     };
 
@@ -33,16 +38,24 @@ class SingleStudentContainer extends Component {
         this.props.editStudent(modifiedStudent);
     };
 
+    remove = () => {
+
+        this.props.removeStudent(this.state.id);
+    }
+
     render() {
 
-        console.log('id = ', this.props.match.params.id)
+        let curStudent;
 
-        console.log(this.state.curStudent);
+            for(let i = 0; i < this.props.students.length; i++) {
+                if(this.state.id == this.props.students[i].id)
+                    curStudent = this.props.students[i];
+            }
 
-        return(
-            < SingleStudentView handleEdit={this.handleEdit} handleOnChange={this.handleOnChange}
-            onEdit={this.onEdit} editClick={this.editClick}
-            curStudent={this.props.curStudent} students={this.state.students} />
+        return (
+            < SingleStudentView remove={this.remove} handleEdit={this.handleEdit} handleOnChange={this.handleOnChange}
+            onEdit={this.onEdit} editClick={this.state.editClick}
+            curStudent={curStudent} students={this.props.students} />
         );
     };
 
@@ -52,19 +65,19 @@ const mapStates = (state) => {
 
     return {
         students: state.students
-    }
-}
+    };
+};
 
 const mapDispatch = (dispatch) => {
 
     return {
-        editStudentInfo: (revisedStudent) => {
-            dispatch({type: EDIT_STUDENT_INFO});
+        editStudentInfo: (modifiedStudent) => {
+            dispatch(editStudentThunk(modifiedStudent));
         },
         removeStudent: (id) => {
-            dispatch({type: REMOVE_STUDENT});
-        },
+            dispatch(removeStudentThunk(id));
+        }
     };
-}
+};
 
 export default connect(mapStates, mapDispatch)(SingleStudentContainer);
