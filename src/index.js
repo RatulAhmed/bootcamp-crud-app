@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Student from './components/student';
 import Campus from './components/Campus';
 import AllStudents from './components/AllStudents';
 import AllCampus from './components/AllCampus';
+import AllStudentsContainer from './components/Students/AllStudentsContainer';
 import {Provider} from 'react-redux';
 import store from './Store';
 
 ReactDOM.render(
     <Provider store={store}>
-        <AllStudents />
+        <App />
     </Provider>,
     document.getElementById('root'));
 

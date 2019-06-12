@@ -1,9 +1,8 @@
-// may need to change name of campusReducer when combining reducers
 function campusReducer(state = {
 	campus: [
 	{
 		campusName: "Hunter College",
-		campusAddress: "68th and Lex", 
+		campusAddress: "68th and Lex",
 		description: "A college",
 	},
 	{
