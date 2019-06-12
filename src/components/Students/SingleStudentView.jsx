@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class SingleStudentView extends Component {
 
@@ -9,7 +10,7 @@ class SingleStudentView extends Component {
     displayForm = () => {
 
         if(this.props.editClick) {
-            return  (
+            return (
                 <div>
                     <form>
                         First Name <br/>
@@ -22,9 +23,10 @@ class SingleStudentView extends Component {
                         <input type="text" name="campus" onChange={this.props.handleOnChange}/> <br/>
                         GPA <br/>
                         <input type="number" name="gpa" onChange={this.props.handleOnChange}/>
-                        </form>
-                        <button onClick={this.props.handleEdit}> Edit </button>
-                        <h1/>
+                    </form>
+
+                    <button onClick={this.props.handleEdit}> Edit </button>
+                    <h1/>
                 </div>
             );
         }
@@ -43,7 +45,9 @@ class SingleStudentView extends Component {
 
                 {this.props.students.map(student =>
                     <div key={student.id}>
-                        <h4> <b> {student.firstName} {student.lastName} </b> </h4>
+                        <Link to={`/students/${this.props.id}`}>
+                            <h4> <b> {student.firstName} {student.lastName} </b> </h4>
+                        </Link>
                         <p> {student.campus} </p>
                         <p> {student.email} </p>
                         <p> {student.gpa} </p>
