@@ -9,7 +9,7 @@ function studentReducer(state = {
             gpa: '1.9',
             campus: 'CBS Studios',
             img: '../components/anonymous.jpg',
-            id: 1,
+            id: 0,
         },
         {
             firstName: 'Karanveer',
@@ -18,7 +18,7 @@ function studentReducer(state = {
             gpa: 3.3,
             campus: 'Hunter College',
             img: '../components/anonymous.jpg',
-            id: 2,
+            id: 1,
 
         },
         {
@@ -28,7 +28,7 @@ function studentReducer(state = {
             gpa: 4.0,
             campus: 'Conitnental',
             img: '../components/anonymous.jpg',
-            id: 3,
+            id: 2,
         },
     ],
 }, action) {
@@ -50,9 +50,15 @@ function studentReducer(state = {
         case REMOVE_STUDENT: {
             let newState = state.students;
 
+            console.log("state before remove ", newState);
+
+            newState = newState.filter(val => val.id != action.payload);
+
+            console.log("state after remove is ", newState);
+
             return {
                 ...state,
-                students: newState.filter(val => val.id != action.payload)
+                students: newState
             }
         }
         case ADD_STUDENT: {

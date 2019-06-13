@@ -36,7 +36,7 @@ class AllStudentsContainer extends Component {
             gpa: this.state.gpa,
             campus: this.state.campus,
             img: './anonymous',
-            id: this.props.students.length + 1,
+            id: this.props.students.length,
         };
 
         this.setState({
