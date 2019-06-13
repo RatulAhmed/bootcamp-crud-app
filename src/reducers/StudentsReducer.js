@@ -35,13 +35,27 @@ function reducer(state = {
 
     switch(action.type) {
         case EDIT_STUDENT_INFO: {
-            break;
+            let newState = state.students;
+
+            for(let i = 0; i < newState.length; i++){
+                if(newState[i].id == action.payload.id)
+                    newState[i] = action.payload;
+            }
+
+            return {
+                ...state,
+                students: newState
+            }
         }
         case REMOVE_STUDENT: {
-            break;
+            let newState = state.students;
+
+            return {
+                ...state,
+                students: newState.filter(val => val.id != action.payload)
+            }
         }
         case ADD_STUDENT: {
-            console.log('new student is', action.payload);
             return {
                 ...state,
                 students: state.students.concat(action.payload)
