@@ -22,7 +22,7 @@ class CampusBox extends Component {
 					<div className="campus-box">
 							<div className="campus-flex-container">
 								 <div className="img-container">
-								 	<img src="./img/hunter.jpeg"/>
+								 	<img src="./img/hunter.jpeg" alt="Hunter"/>
 								 </div>
 								 <div className="data-container">
 								 			<div className="campus-bar">

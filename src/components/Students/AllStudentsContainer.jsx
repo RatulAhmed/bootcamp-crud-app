@@ -10,11 +10,11 @@ class AllStudentsContainer extends Component {
         super(props);
         this.state = {
 
-            firstName: "N/A",
-            lastName : "N/A",
-            email: "N/A",
-            campus: "N/A",
-            gpa: "N/A",
+            firstName: "",
+            lastName : "",
+            email: "",
+            campus: "",
+            gpa: "",
             img: "",
             addClick: false,
         }
@@ -35,8 +35,8 @@ class AllStudentsContainer extends Component {
             email: this.state.email,
             gpa: this.state.gpa,
             campus: this.state.campus,
-            img: './anonymous',
-            id: this.props.students.length + 1,
+            img: '',
+            id: this.props.students.length,
         };
 
         this.setState({
@@ -53,7 +53,7 @@ class AllStudentsContainer extends Component {
     };
 
     render() {
-        
+        console.log(this.props.students)
         return(
             < AllStudentView addClick={this.state.addClick} handleOnSubmit={this.handleOnSubmit}
             handleOnChange={this.handleOnChange} updateAddClick={this.updateAddClick}
@@ -65,7 +65,7 @@ class AllStudentsContainer extends Component {
 const mapStates = (state) => {
 
     return {
-        students: state.students
+        students: state.studentReducer.students
     }
 }
 
