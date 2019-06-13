@@ -33,8 +33,7 @@ class AllCampus extends Component {
             imageUrl: this.state.imageUrl,
             description: this.state.description,
             campus: this.state.campus,
-            img: './random.jpg',
-            id: this.props.students.length + 1,
+            id: this.props.campus.length + 1,
         };
 
         this.setState({
@@ -56,8 +55,7 @@ class AllCampus extends Component {
             handleOnChange={this.handleOnChange} updateAddClick={this.updateAddClick}
             campusInfo={this.props.campus} />
         );
-    }
-       	
+    }     	
 };
 
 

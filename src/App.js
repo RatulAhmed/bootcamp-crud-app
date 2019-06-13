@@ -45,6 +45,8 @@ class App extends Component {
                 <Route exact path='/' render={HomeComponent}/>
                 <Route exact path='/students' render={AllStudentsComponent} />
                 <Route exact path='/students/:id' render={props => <SingleStudentContainer{...props} />} />
+                <Route exact path ='/campus/' render={AllCampusComponent}/>
+                <Route exact path ='/campus/:id' render={props=> <SingleCampusComponent{...props} />} />
             </Router>
         );
     };

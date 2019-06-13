@@ -11,12 +11,15 @@ class AllCampusView extends Component {
 	displayForm = () => {
         if(this.props.addClick) {
         	return(
+                <div>
         		<div>
         		<form>
         		Campus Name <br/>
                     <input type="text" name="campusName" onChange={this.props.handleOnChange}/> <br/>
         		</form>
         		</div>
+                <button onClick={this.props.handleOnSubmit}> Add </button>
+                </div>
 
         		)
 		}
@@ -25,7 +28,6 @@ class AllCampusView extends Component {
     displayCampus = () => {
 
         if(this.props.campusInfo.length > 0) {
-
             return (
                 <div>
                     {this.props.campusInfo.map(campus =>
@@ -41,7 +43,6 @@ class AllCampusView extends Component {
             );
         }
         else {
-
             return (
                 <div>
                     <h1> There are no campuses </h1>
@@ -55,15 +56,10 @@ class AllCampusView extends Component {
         const {updateAddClick} = this.props;
 
         return(
-
             <div>
-
-                <header> <h1> All Campuses </h1> </header>
-
+                <header><h1> All Campuses </h1></header>
                 <button onClick={updateAddClick}> Add New Campus </button>
-
                 {this.displayForm()}
-
                 {this.displayCampus()}
 
             </div>
