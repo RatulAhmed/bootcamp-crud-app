@@ -34,6 +34,7 @@ class SingleStudentView extends Component {
     }
 
     render() {
+
         return(
             <div className="singleStudent">
                 <div>
@@ -47,7 +48,6 @@ class SingleStudentView extends Component {
                     </Link>
                     {this.displayForm()}
                 </div>
-
                 {this.props.students.map(student =>
                     <div key={student.id}>
                         <Link to={`/students/${student.id}`}>
