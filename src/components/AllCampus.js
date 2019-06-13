@@ -1,19 +1,63 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { ADD_CAMPUS, EDIT_CAMPUS, REMOVE_CAMPUS, addCampus, editCampus ,removeCampus } from '../actions/CampusActions';
+import { ADD_CAMPUS, addCampusThunk } from '../actions/CampusActions';
 import store from '../Store';
+import AllCampusView from './AllCampusView';
 
 class AllCampus extends Component {
 	
 	constructor(props) {
 		super(props);
-	}
-
-	render() {
-
-		console.log(this.props);
-		return ( null )
+        
+		this.state = {
+			campusName: "",
+			campusAddress: "",
+			imageUrl: "",
+			description: "",
+			addClick: false,
 		}
+	};
+
+    handleOnChange = event => {
+
+        this.setState ({
+            [event.target.name]: event.target.value
+        })
+    };
+
+    handleOnSubmit = () => {
+
+        const newCampus = {
+            campusName: this.state.campusName,
+            campusAddress : this.state.campusAddress,
+            imageUrl: this.state.imageUrl,
+            description: this.state.description,
+            campus: this.state.campus,
+            img: './random.jpg',
+            id: this.props.students.length + 1,
+        };
+
+        this.setState({
+            addClick: !this.state.addClick
+        });
+
+        this.props.addCampus(newCampus);
+    };
+
+    updateAddClick = () => {
+        this.setState({
+            addClick: !this.state.addClick
+        })
+    }; 
+
+    render() {
+        return(
+            <AllCampusView addClick={this.state.addClick} handleOnSubmit={this.handleOnSubmit}
+            handleOnChange={this.handleOnChange} updateAddClick={this.updateAddClick}
+            campusInfo={this.props.campus} />
+        );
+    }
+       	
 };
 
 
@@ -21,7 +65,7 @@ const mapStates = (state) => {
 
 	return {
 
-		value: state.campus
+		campus: state.campus
 	}
 }
 
@@ -29,16 +73,9 @@ const mapDispatch = (dispatch) => {
 
 	return {
 
-		addCampus: () => {
-			dispatch({type: ADD_CAMPUS});
+		addCampus: (newCampus) => {
+			dispatch(addCampusThunk(newCampus));
 		},
-		editCampus: () => {
-			dispatch({type: EDIT_CAMPUS});
-			},
-		removeCampus: () => {
-			dispatch({type: REMOVE_CAMPUS});
-			}
-	};
+	}
 }
-
 export default connect(mapStates, mapDispatch)(AllCampus);

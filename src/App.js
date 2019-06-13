@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Route, BrowserRouter as Router, Link} from 'react-router-dom';
 import AllStudentsContainer from './components/Students/AllStudentsContainer';
 import SingleStudentContainer from './components/Students/SingleStudentContainer';
+import Campus from './components/Campus';
+import AllCampus from './components/AllCampus';
 import Home from './components/Home';
 
 class App extends Component {
@@ -25,6 +27,18 @@ class App extends Component {
                 <SingleStudentContainer />
             );
         };
+
+        const SingleCampusComponent = () => {
+            return (
+                <Campus/>
+                );
+        };
+
+        const AllCampusComponent = () => {
+            return (
+                <AllCampus/>
+                )
+        }
 
         return (
             <Router>
