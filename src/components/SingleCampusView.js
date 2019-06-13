@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Campus from './Campus';
 
 class SingleCampusView extends Component {
 	constructor(props){
@@ -33,16 +34,24 @@ class SingleCampusView extends Component {
 
 	render() {
         return (
+
 		    <div>
                 <h1> {this.props.campus.campusAddress} </h1>
                 <h3> {this.props.campus.description} </h3>
                 <p> {this.props.campus.imageUrl} </p>
                     {this.displayForm()} 
             </div>
-                    )
-    }
-}
 
+/*
+            <div>
+            {this.props.campus.map(campus => 
+                <div key={campus.id}>
+                <Link to={'/campus/${campus.id}'}>
+                 <p> {campus.campusName} </p>
+                </Link>
+            </div>*/
+                )}
+}
 
 
 export default SingleCampusView;

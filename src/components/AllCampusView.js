@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Campus from './Campus'
-import { ADD_CAMPUS, EDIT_CAMPUS, REMOVE_CAMPUS, addCampus, editCampus ,removeCampus } from '../actions/CampusActions';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 class AllCampusView extends Component {
@@ -14,8 +13,8 @@ class AllCampusView extends Component {
         	return(
         		<div>
         		<form>
-        		First Name <br/>
-                    <input type="text" name="firstName" onChange={this.props.handleOnChange}/> <br/>
+        		Campus Name <br/>
+                    <input type="text" name="campusName" onChange={this.props.handleOnChange}/> <br/>
         		</form>
         		</div>
 
@@ -25,7 +24,7 @@ class AllCampusView extends Component {
 
     displayCampus = () => {
 
-        if(this.props.campus.length > 0) {
+        if(this.props.campusInfo.length > 0) {
 
             return (
                 <div>
