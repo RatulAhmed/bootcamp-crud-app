@@ -4,12 +4,14 @@ import {EDIT_STUDENT_INFO, REMOVE_STUDENT, editStudentThunk, removeStudentThunk}
 import store from '../../Store';
 import SingleStudentView from './SingleStudentView';
 
+
 const mapStates = (state) => {
 
     return {
         students: state.studentReducer.students
     };
 };
+
 
 const mapDispatch = (dispatch) => {
 
@@ -22,6 +24,7 @@ const mapDispatch = (dispatch) => {
         }
     };
 };
+
 
 class SingleStudentContainer extends Component {
 
@@ -72,8 +75,8 @@ class SingleStudentContainer extends Component {
         const modifiedStudent = {
             firstName: this.state.firstName === '' ? curStudent.firstName : this.state.firstName,
             lastName: this.state.lastName === '' ? curStudent.lastName : this.state.lastName,
-            email: this.state.email === '' ? curStudent.email : this.state.email,
             campus: this.state.campus === '' ? curStudent.campus : this.state.campus,
+            email: this.state.email === '' ? curStudent.email : this.state.email,
             gpa: this.state.gpa == 0.0 ? curStudent.gpa : this.state.gpa,
             id: this.state.id,
         };
@@ -93,7 +96,7 @@ class SingleStudentContainer extends Component {
 
     } // end of remove
 
-    
+
     render() {
 
         let curStudent = {};
@@ -110,6 +113,7 @@ class SingleStudentContainer extends Component {
             editClick={this.state.editClick} id={this.state.id}
             curStudent={curStudent} students={this.props.students} />
         );
+
     }; // end of render()
 
 }; // end of SingleStudentContainer

@@ -10,11 +10,11 @@ class AllStudentsContainer extends Component {
         super(props);
         this.state = {
 
-            firstName: "N/A",
-            lastName : "N/A",
-            email: "N/A",
-            campus: "N/A",
-            gpa: "N/A",
+            firstName: "",
+            lastName : "",
+            email: "",
+            campus: "",
+            gpa: "",
             img: "",
             addClick: false,
         }
@@ -35,7 +35,7 @@ class AllStudentsContainer extends Component {
             email: this.state.email,
             gpa: this.state.gpa,
             campus: this.state.campus,
-            img: './anonymous',
+            img: '',
             id: this.props.students.length,
         };
 
