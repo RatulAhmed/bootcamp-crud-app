@@ -1,6 +1,6 @@
 import {EDIT_STUDENT_INFO, ADD_STUDENT, REMOVE_STUDENT} from '../actions/StudentActions';
 
-function reducer(state = {
+function studentReducer(state = {
     students: [
         {
             firstName: 'James',
@@ -8,8 +8,8 @@ function reducer(state = {
             email: 'jcorden@gmail.co.uk',
             gpa: '1.9',
             campus: 'CBS Studios',
-            img: "../components/anonymous.jpg",
-            id: 1,
+            img: '../../../anonymous.jpg',
+            id: 0,
         },
         {
             firstName: 'Karanveer',
@@ -17,8 +17,8 @@ function reducer(state = {
             email: 'karansingh98123@gmail.com',
             gpa: 3.3,
             campus: 'Hunter College',
-            img: "../components/anonymous.jpg",
-            id: 2,
+            img: '../../../anonymous.jpg',
+            id: 1,
 
         },
         {
@@ -27,8 +27,8 @@ function reducer(state = {
             email: 'mydoghasbeenmurdered@hotmail.com',
             gpa: 4.0,
             campus: 'Conitnental',
-            img: "../components/anonymous.jpg",
-            id: 3,
+            img: '../../../anonymous.jpg',
+            id: 2,
         },
     ],
 }, action) {
@@ -50,9 +50,15 @@ function reducer(state = {
         case REMOVE_STUDENT: {
             let newState = state.students;
 
+            console.log("state before remove ", newState);
+
+            newState = newState.filter(val => val.id != action.payload);
+
+            console.log("state after remove is ", newState);
+
             return {
                 ...state,
-                students: newState.filter(val => val.id != action.payload)
+                students: newState
             }
         }
         case ADD_STUDENT: {
@@ -66,4 +72,4 @@ function reducer(state = {
     }
 }
 
-export default reducer;
+export default studentReducer;

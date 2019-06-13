@@ -85,7 +85,7 @@ class Campus extends Component {
 
 const mapState = (state) => {
 	return {
-		campus: state.campus
+		campus: state.campusReducer.campus
 	}
 };
 

@@ -6,6 +6,7 @@ const Nav = (props) => {
         <div>
             <div className='nav-bar'>
               <h1> {props.pageName}</h1>
+              <img src='../../chimpy-logo.PNG' alt='Chimpy Logo'/>
                 <div className="nav-button-flex-container">
                     <div className="nav-button-box">
                       Home
@@ -17,8 +18,8 @@ const Nav = (props) => {
                         Students
                       </div>
                 </div>
-            </div>
+             </div>
           </div>
   )
 }
-export default Nav
+export default Nav;
