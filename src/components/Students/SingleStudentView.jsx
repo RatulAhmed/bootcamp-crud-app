@@ -28,7 +28,7 @@ class SingleStudentView extends Component {
 
                     <button onClick={this.props.handleEdit}> Edit </button>
                     <h1/>
-                    
+
                 </div>
             );
         }
@@ -36,7 +36,10 @@ class SingleStudentView extends Component {
 
     render() {
 
+        const restStudents = this.props.students.filter(val => val.id != this.props.id);
+
         return(
+
             <div className="singleStudent">
                 <div>
                     <h1> SingleStudentView </h1>
@@ -49,11 +52,11 @@ class SingleStudentView extends Component {
                     </Link>
                     {this.displayForm()}
                 </div>
-                {this.props.students.map(student =>
+                {restStudents.map(student =>
                     <div key={student.id}>
-                        <Link to={`/students/${student.id}`}>
+                        <a href={`/students/${student.id}`}>
                             <h4> <b> {student.firstName} {student.lastName} </b> </h4>
-                        </Link>
+                        </a>
                         <p> {student.campus} </p>
                         <p> {student.email} </p>
                         <p> {student.gpa} </p>

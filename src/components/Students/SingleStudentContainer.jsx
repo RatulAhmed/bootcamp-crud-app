@@ -93,6 +93,7 @@ class SingleStudentContainer extends Component {
 
     } // end of remove
 
+    
     render() {
 
         let curStudent = {};
@@ -102,7 +103,6 @@ class SingleStudentContainer extends Component {
                 break;
             }
         }
-
 
         return (
             < SingleStudentView remove={this.remove} handleEdit={this.handleEdit}
