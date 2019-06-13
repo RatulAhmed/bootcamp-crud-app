@@ -8,7 +8,7 @@ function reducer(state = {
             email: 'jcorden@gmail.co.uk',
             gpa: '1.9',
             campus: 'CBS Studios',
-            img: "../components/anonymous.jpg",
+            img: '../components/anonymous.jpg',
             id: 1,
         },
         {
@@ -17,7 +17,7 @@ function reducer(state = {
             email: 'karansingh98123@gmail.com',
             gpa: 3.3,
             campus: 'Hunter College',
-            img: "../components/anonymous.jpg",
+            img: '../components/anonymous.jpg',
             id: 2,
 
         },
@@ -27,7 +27,7 @@ function reducer(state = {
             email: 'mydoghasbeenmurdered@hotmail.com',
             gpa: 4.0,
             campus: 'Conitnental',
-            img: "../components/anonymous.jpg",
+            img: '../components/anonymous.jpg',
             id: 3,
         },
     ],

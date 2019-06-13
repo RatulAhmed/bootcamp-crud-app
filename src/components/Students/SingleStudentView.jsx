@@ -28,6 +28,7 @@ class SingleStudentView extends Component {
 
                     <button onClick={this.props.handleEdit}> Edit </button>
                     <h1/>
+                    
                 </div>
             );
         }
