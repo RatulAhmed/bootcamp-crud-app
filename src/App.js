@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, BrowserRouter as Router} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Link} from 'react-router-dom';
 import AllStudentsContainer from './components/Students/AllStudentsContainer';
 import SingleStudentContainer from './components/Students/SingleStudentContainer';
 import Home from './components/Home';
