@@ -42,9 +42,9 @@ class SingleStudentView extends Component {
 
             <div className="singleStudent">
                 <div>
-                    <h1> SingleStudentView </h1>
+                    <img src={this.props.curStudent.img} alt='image'/>
                     <h1> {this.props.curStudent.firstName} {this.props.curStudent.lastName} </h1>
-                    <h1> {this.props.curStudent.campus} </h1>
+                    <h2> {this.props.curStudent.campus} </h2>
                     <h3> {this.props.curStudent.email} </h3>
                     <button onClick={this.props.onEdit}> Edit Student Info </button>
                     <Link to='/students'>
