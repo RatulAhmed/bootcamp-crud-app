@@ -1,9 +1,9 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import reducer from './reducers/StudentsReducer';
+import studentReducer from './reducers/StudentsReducer';
 import campusReducer from './reducers/CampusReducer';
 
-let middleWare = thunkMiddleware;
+const middleWare = thunkMiddleware;
+const rootReducer = combineReducers({campusReducer, studentReducer});
 
-// Need to combine reducers
-export default createStore(reducer, applyMiddleware(middleWare));
+export default createStore(rootReducer, applyMiddleware(middleWare));

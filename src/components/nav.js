@@ -6,6 +6,7 @@ const Nav = (props) => {
         <div>
             <div className='nav-bar'>
               <h1> {props.pageName}</h1>
+              <img src='./styles/chimpy-logo.PNG' alt='Chimpy Logo'/>
                 <div className="nav-button-flex-container">
                     <div className="nav-button-box">
                       Home
@@ -21,4 +22,4 @@ const Nav = (props) => {
           </div>
   )
 }
-export default Nav
+export default Nav;

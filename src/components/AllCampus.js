@@ -5,10 +5,10 @@ import store from '../Store';
 import AllCampusView from './AllCampusView';
 
 class AllCampus extends Component {
-	
+
 	constructor(props) {
 		super(props);
-        
+
 		this.state = {
 			campusName: "",
 			campusAddress: "",
@@ -48,7 +48,7 @@ class AllCampus extends Component {
         this.setState({
             addClick: !this.state.addClick
         })
-    }; 
+    };
 
     render() {
         return(
@@ -57,7 +57,7 @@ class AllCampus extends Component {
             campusInfo={this.props.campus} />
         );
     }
-       	
+
 };
 
 
@@ -65,7 +65,7 @@ const mapStates = (state) => {
 
 	return {
 
-		campus: state.campus
+		campus: state.campusReducer.campus
 	}
 }
 

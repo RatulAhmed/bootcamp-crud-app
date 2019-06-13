@@ -1,6 +1,6 @@
 import {EDIT_STUDENT_INFO, ADD_STUDENT, REMOVE_STUDENT} from '../actions/StudentActions';
 
-function reducer(state = {
+function studentReducer(state = {
     students: [
         {
             firstName: 'James',
@@ -66,4 +66,4 @@ function reducer(state = {
     }
 }
 
-export default reducer;
+export default studentReducer;
