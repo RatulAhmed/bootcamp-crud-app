@@ -25,12 +25,12 @@ export function removeCampus(campusID) {
 
 // Thunks 
 // the thunks will make an axiosCall
-export const editCampusThunk = () => (dispatch) => {
-    return dispatch(editCampus());
+export const editCampusThunk = (modifiedCampus) => (dispatch) => {
+    return dispatch(editCampus(modifiedCampus));
 };
 
-export const removeCampusThunk = () => (dispatch) => {
-    return dispatch(removeCampus());
+export const removeCampusThunk = (id) => (dispatch) => {
+    return dispatch(removeCampus(id));
 };
 
 export const addCampusThunk = (newCampus) => (dispatch) => {
