@@ -1,20 +1,24 @@
 import React from 'react'
 import '../styles/nav.css'
-
+import {Link} from 'react-router-dom'
 const Nav = (props) => {
   return(
         <div>
+
             <div className='nav-bar'>
-              <h1> {props.pageName}</h1>
+
                 <div className="nav-button-flex-container">
+                <div>
+                  <img className="logo-nav" src="chimpy-logo.PNG"/>
+                </div>
                     <div className="nav-button-box">
-                      Home
+                      <Link className="nav-link" to="/">Home</Link>
                     </div>
                       <div className="nav-button-box">
                         Campuses
                       </div>
                       <div className="nav-button-box ">
-                        Students
+                        <Link className="nav-link" to="/students">Students</Link>
                       </div>
                 </div>
             </div>

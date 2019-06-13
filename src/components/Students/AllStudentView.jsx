@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import SingleStudentContainer from './SingleStudentContainer';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
+import '../../styles/allStudent.css'
+import Nav from '../nav.js'
 class AllStudentView extends Component {
 
     constructor(props){
@@ -37,7 +38,8 @@ class AllStudentView extends Component {
         if(this.props.studentInfo.length > 0) {
 
             return (
-                <div>
+
+              /*  <div >
                     {this.props.studentInfo.map(student =>
                         <div key={student.id}>
                             <Link to={`students/${student.id}`}>
@@ -49,6 +51,30 @@ class AllStudentView extends Component {
                         </div>
                     )}
                 </div>
+                */
+                <div className="flex-container-student">
+                  {this.props.studentInfo.map(student =>
+                  <div className="box-student">
+                         <div className="img-container-student">
+                          <img className="image-student" src="chimpy-logo.PNG"/>
+                         </div>
+                         <div className="data-container-student">
+                              <div className="bar-student">
+                                 <div className="name-student">
+                                  {student.firstName} {student.lastName}
+                                 </div>
+                              </div>
+                              <div className="bar-student">
+                                <div className="name-campus-student">
+                                  {student.campus}
+                                </div>
+                              </div>
+                         </div>
+                </div>
+                    )}
+              </div>
+
+
             );
         }
         else {
@@ -67,17 +93,14 @@ class AllStudentView extends Component {
         const {updateAddClick} = this.props;
 
         return(
-
-            <div className="AllStudents">
-
-                <header> <h1> All Students </h1> </header>
-
-                <button onClick={updateAddClick}> Add New Student </button>
-
-                {this.displayForm()}
-
-                {this.displayStudents()}
-
+            <div>
+            <Nav/>
+              <div className="AllStudents">
+                  <header> <h1> All Students </h1> </header>
+                  <button onClick={updateAddClick}> Add New Student </button>
+                  {this.displayForm()}
+                  {this.displayStudents()}
+               </div>
             </div>
         );
     }

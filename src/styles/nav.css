@@ -1,5 +1,4 @@
 .nav-bar {
-  text-align: center;
   padding: 1rem 2rem 1rem;
   margin: 0.25rem;
   border-radius: 0.5rem;
@@ -15,6 +14,7 @@
   padding: 1rem 1rem 1rem;
   border-radius: 0.5rem;
   margin: 1rem;
+  margin-top: 6rem;
   min-width: 3rem;
   width: 6rem;
   height: 1rem;
@@ -35,7 +35,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+.logo-nav{
+  width: 10rem;
+  height: 10rem;
 
+}
 .nav-link {
   text-decoration: none;
+  color: #34495e;
 }
