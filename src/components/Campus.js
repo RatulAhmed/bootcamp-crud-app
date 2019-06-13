@@ -7,7 +7,7 @@ import SingleCampusView from './SingleCampusView';
 
 class Campus extends Component {
 	constructor() {
-    
+
 		super();
 
 		this.state = {
