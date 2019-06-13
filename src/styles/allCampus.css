@@ -3,8 +3,8 @@
   border-radius: 0.5rem;
   margin: 1rem;
   min-width: 2rem;
-  width: 20rem;
-  height: 8rem;
+  width: 26rem;
+  height: 13rem;
   background-color: #fbe2c3;
   border-bottom: solid 4px #f7931a;
 }
@@ -13,8 +13,8 @@
   border-radius: 0.5rem;
   margin: 0.25rem;
   min-width: 2rem;
-  width: 6rem;
-  height: 6.5rem;
+  width: 10rem;
+  height: 11.5rem;
   background-color: #00ffff;
 }
 .data-container {
@@ -22,9 +22,9 @@
   border-radius: 0.5rem;
   margin: 0.25rem;
   min-width: 2rem;
-  width: 11rem;
-  height: 6.5rem;
-  background-color: #00ffff;
+  width: 13rem;
+  height: 11.5rem;
+
 }
 .campus-bar {
     padding: 1rem 0.5rem 1rem;
@@ -33,18 +33,68 @@
     margin-top: 0.10rem;
     border-radius: 0.5rem;
     min-width: 9rem;
+    height: 1rem;
     border: solid 1px rgba(0,0,0, 0.05);
     background-color:  #abebc6;
     color: #34495e;
 }
-.del-button {
-
-
+.campus-name{
+font-weight: bold;
 }
-
+.campus-number{
+  font-size: 0.75rem;
+}
+.campus-bar-for-buttons{
+    padding: 1rem 0.5rem 1rem;
+    margin: 0.25rem;
+    margin-bottom: 0.05rem;
+    margin-top: 0.10rem;
+    border-radius: 0.5rem;
+    min-width: 9rem;
+    height: 1rem;
+    border: solid 1px rgba(0,0,0, 0.05);
+    color: #34495e;
+}
 .campus-flex-container {
   display: flex;
   flex-wrap: wrap;
   float: left;
   width: 100%;
+}
+
+.button-campus-box-left {
+  text-align: center;
+  padding: 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  margin-left: 3rem;
+  width: 2.5rem;
+  height: 1rem;
+  background-color: #a9cce3;
+  border-bottom: solid 4px  #2874a6 ;
+  float: right;
+  justify-content: right;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button-campus-box-right {
+  text-align: center;
+  padding: 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  margin-right: 2rem;
+  width: 2rem;
+  height: 1rem;
+  background-color: #a9cce3;
+  border-bottom: solid 4px  #2874a6 ;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button-campus-box-right:active {
+  background-color: #a9cce3;
+  box-shadow: 0 5px #2874a6;
+  transform: translateY(1px);
+}
+.button-campus-box-left:active {
+  background-color: #a9cce3;
+  box-shadow: 0 5px #2874a6;
+  transform: translateY(1px);
 }
