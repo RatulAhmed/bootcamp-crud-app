@@ -80,11 +80,18 @@ class SingleStudentContainer extends Component {
 
         console.log('curStudent is', this.props.students[this.state.id-1]);
 
+        let student = {
+            firstName: "Garrison",
+            lastName: "Shepard",
+            email: "me@123.com",
+            campus: "hunter",
+          };
+
         return (
-            < SingleStudentView remove={this.remove} handleEdit={this.handleEdit}
-            handleOnChange={this.handleOnChange} onEdit={this.onEdit}
-            editClick={this.state.editClick} id={this.state.id}
-            curStudent={this.props.students[this.state.id-1]} students={this.props.students} />
+          < SingleStudentView remove={this.remove} handleEdit={this.handleEdit}
+          handleOnChange={this.handleOnChange} onEdit={this.onEdit}
+          editClick={this.state.editClick} id={this.state.id}
+          curStudent={this.props.students[this.state.id-1]} students={this.props.students} />
         );
     };
 };
