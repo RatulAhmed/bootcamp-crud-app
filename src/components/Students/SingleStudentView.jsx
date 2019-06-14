@@ -42,9 +42,8 @@ class SingleStudentView extends Component {
 
             <div className="singleStudent">
                 <div>
-                    <img src={this.props.curStudent.img} alt='image'/>
+                    <img src={this.props.curStudent.imgUrl} alt='image'/>
                     <h1> {this.props.curStudent.firstName} {this.props.curStudent.lastName} </h1>
-                    <h2> {this.props.curStudent.campus} </h2>
                     <h3> {this.props.curStudent.email} </h3>
                     <button onClick={this.props.onEdit}> Edit Student Info </button>
                     <Link to='/students'>
@@ -57,7 +56,6 @@ class SingleStudentView extends Component {
                         <a href={`/students/${student.id}`}>
                             <h4> <b> {student.firstName} {student.lastName} </b> </h4>
                         </a>
-                        <p> {student.campus} </p>
                         <p> {student.email} </p>
                         <p> {student.gpa} </p>
                     </div>

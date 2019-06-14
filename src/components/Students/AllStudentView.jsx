@@ -43,7 +43,6 @@ class AllStudentView extends Component {
                             <Link to={`students/${student.id}`}>
                                 <h4> <b> {student.firstName} {student.lastName} </b> </h4>
                             </Link>
-                            <p> {student.campus} </p>
                             <p> {student.email} </p>
                             <p> {student.gpa} </p>
                         </div>

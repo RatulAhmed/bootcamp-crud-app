@@ -16,8 +16,8 @@ const mapStates = (state) => {
 const mapDispatch = (dispatch) => {
 
     return {
-        editStudent: (modifiedStudent) => {
-            dispatch(editStudentThunk(modifiedStudent));
+        editStudent: (id, modifiedStudent) => {
+            dispatch(editStudentThunk(id, modifiedStudent));
         },
         removeStudent: (id) => {
             dispatch(removeStudentThunk(id));
@@ -36,7 +36,6 @@ class SingleStudentContainer extends Component {
             lastName: '',
             email: '',
             gpa: 0.0,
-            campus: '',
             id: this.props.match.params.id,
         };
 
@@ -75,10 +74,8 @@ class SingleStudentContainer extends Component {
         const modifiedStudent = {
             firstName: this.state.firstName === '' ? curStudent.firstName : this.state.firstName,
             lastName: this.state.lastName === '' ? curStudent.lastName : this.state.lastName,
-            campus: this.state.campus === '' ? curStudent.campus : this.state.campus,
             email: this.state.email === '' ? curStudent.email : this.state.email,
             gpa: this.state.gpa == 0.0 ? curStudent.gpa : this.state.gpa,
-            id: this.state.id,
         };
 
         this.setState({
