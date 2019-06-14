@@ -5,14 +5,16 @@
   min-width: 2rem;
   width: 15rem;
   height: 17rem;
-  background-color: #fbe2c3;
-  border-bottom: solid 4px #f7931a;
+/*  background-color: #fbe2c3;
+  border-bottom: solid 4px #f7931a;*/
+  background-color: #a9cce3;
+  border-bottom: solid 4px  #2874a6 ;
 }
 .image-student {
   width: 11rem;
   height: 9rem;
   border-radius: 0.5rem;
-  border: solid 2px #f7931a;
+  border: solid 2px #2874a6;
 }
 
 .img-container-student {
@@ -113,4 +115,36 @@
   flex-wrap: wrap;
   float: left;
   width: 100%;
+}
+form{
+  text-align: center;
+}
+input {
+  width: 20rem;
+  height: 3rem;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.center-container {
+  text-align: center;
+}
+label {
+  margin-right: 2px;
+    color: #34495e;
+}
+
+.button-add-students{
+    padding: 1rem 0.5rem 1rem;
+    margin: 0.25rem;
+    margin-bottom: 0.05rem;
+    border-radius: 0.5rem;
+    min-width: 9rem;
+    width: 2rem;
+    height: 1rem;
+    background-color: #a9cce3;
+    border-bottom: solid 4px  #2874a6 ;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

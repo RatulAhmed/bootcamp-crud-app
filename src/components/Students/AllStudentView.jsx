@@ -13,21 +13,30 @@ class AllStudentView extends Component {
 
         if(this.props.addClick) {
             return (
-                <div>
+                <div className="center-container">
                     <form>
-                        First Name <br/>
+                        <label>
+                        First Name
                         <input type="text" name="firstName" onChange={this.props.handleOnChange}/> <br/>
-                        Last Name <br/>
+                        </label>
+                        <label>
+                        Last Name
                         <input type="text" name="lastName" onChange={this.props.handleOnChange}/> <br/>
-                        Email <br/>
+                        </label>
+                        <label>
+                        Email
                         <input type="text" name="email" onChange={this.props.handleOnChange}/> <br/>
-                        Campus <br/>
+                        </label>
+                        <label>
+                        Campus
                         <input type="text" name="campus" onChange={this.props.handleOnChange}/> <br/>
-                        GPA <br/>
+                        </label>
+                        <label>
+                        GPA
                         <input type="number" name="gpa" onChange={this.props.handleOnChange}/>
+                        </label>
                     </form>
-                    <button onClick={this.props.handleOnSubmit}> Add </button>
-                    <h1/>
+                    <div className="button-add-students" onClick={this.props.handleOnSubmit}> Add Student </div>
                 </div>
             );
         }
@@ -95,11 +104,23 @@ class AllStudentView extends Component {
         return(
             <div>
             <Nav/>
+
               <div className="AllStudents">
+                {/*
                   <header> <h1> All Students </h1> </header>
                   <button onClick={updateAddClick}> Add New Student </button>
+                */}
+                <div>
+                <div className='add-bar'>
+                  <div className="add-button-flex-container">
+                    <div className="add-word-box"> All Student</div>
+                    <div onClick={updateAddClick}className="add-button-box"> Add Student</div>
+                  </div>
+                  </div>
+                </div>
                   {this.displayForm()}
                   {this.displayStudents()}
+
                </div>
             </div>
         );
