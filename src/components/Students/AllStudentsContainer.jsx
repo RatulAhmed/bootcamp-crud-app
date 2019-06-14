@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {ADD_STUDENT, addStudentThunk} from '../../actions/StudentActions';
+import {ADD_STUDENT, addStudentThunk, FETCH_STUDENTS, fetchStudentsThunk} from '../../actions/StudentActions';
 import store from '../../Store';
 import AllStudentView from './AllStudentView';
 
@@ -13,9 +13,8 @@ class AllStudentsContainer extends Component {
             firstName: "",
             lastName : "",
             email: "",
-            campus: "",
             gpa: "",
-            img: "",
+            imgUrl: "",
             addClick: false,
         }
     };
@@ -34,9 +33,7 @@ class AllStudentsContainer extends Component {
             lastName : this.state.lastName,
             email: this.state.email,
             gpa: this.state.gpa,
-            campus: this.state.campus,
-            img: '',
-            id: this.props.students.length,
+            imgUrl: '',
         };
 
         this.setState({
@@ -72,6 +69,9 @@ const mapStates = (state) => {
 const mapDispatch = (dispatch) => {
 
     return {
+        fetchStudents: () => {
+            dispatch(fetchStudentsThunk());
+        },
         addStudent: (newStudent) => {
             dispatch(addStudentThunk(newStudent));
         }

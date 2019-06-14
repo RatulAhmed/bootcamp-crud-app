@@ -1,7 +1,8 @@
-import {EDIT_STUDENT_INFO, ADD_STUDENT, REMOVE_STUDENT} from '../actions/StudentActions';
+import {FETCH_STUDENTS, EDIT_STUDENT_INFO, ADD_STUDENT, REMOVE_STUDENT} from '../actions/StudentActions';
 
 function studentReducer(state = {
     students: [
+        /*
         {
             firstName: 'James',
             lastName: 'Corden',
@@ -30,10 +31,15 @@ function studentReducer(state = {
             img: '../../../anonymous.jpg',
             id: 2,
         },
+    */
     ],
 }, action) {
 
     switch(action.type) {
+        case FETCH_STUDENTS: {
+
+            return action.payload;
+        }
         case EDIT_STUDENT_INFO: {
             let newState = state.students;
 
@@ -50,11 +56,7 @@ function studentReducer(state = {
         case REMOVE_STUDENT: {
             let newState = state.students;
 
-            console.log("state before remove ", newState);
-
             newState = newState.filter(val => val.id != action.payload);
-
-            console.log("state after remove is ", newState);
 
             return {
                 ...state,
